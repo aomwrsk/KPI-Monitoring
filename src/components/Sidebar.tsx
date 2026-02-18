@@ -12,6 +12,8 @@ import {
   Sparkles,
 } from 'lucide-react';
 
+import { useSidebar } from '@/components/SidebarProvider';
+
 const navItems = [
   { href: '/', label: 'Dashboard', icon: LayoutDashboard },
   { href: '/customer', label: 'Customer', icon: Users },
@@ -23,6 +25,7 @@ const navItems = [
 
 export default function Sidebar() {
   const pathname = usePathname();
+  const { closeMobileMenu } = useSidebar();
 
   return (
     <aside className="sidebar">
@@ -48,6 +51,7 @@ export default function Sidebar() {
               key={item.href}
               href={item.href}
               className={`sidebar-link ${isActive ? 'active' : ''}`}
+              onClick={closeMobileMenu}
             >
               <item.icon size={19} />
               <span>{item.label}</span>

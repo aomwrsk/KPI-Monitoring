@@ -4,6 +4,7 @@ import Sidebar from '@/components/Sidebar';
 import Header from '@/components/Header';
 
 import { ThemeProvider } from '@/components/ThemeProvider';
+import { SidebarProvider } from '@/components/SidebarProvider';
 
 export const metadata: Metadata = {
   title: 'AntiGravity — Sales Monitor',
@@ -20,13 +21,15 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <ThemeProvider>
-          <div className="app-layout">
-            <Sidebar />
-            <div className="main-content">
-              <Header />
-              <main className="page-container">{children}</main>
+          <SidebarProvider>
+            <div className="app-layout">
+              <Sidebar />
+              <div className="main-content">
+                <Header />
+                <main className="page-container">{children}</main>
+              </div>
             </div>
-          </div>
+          </SidebarProvider>
         </ThemeProvider>
       </body>
     </html>
