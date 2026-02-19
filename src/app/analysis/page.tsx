@@ -50,11 +50,11 @@ export default function AnalysisPage() {
         });
     }, []);
 
-    const formatCurrency = (v: number) => '฿' + v.toLocaleString('en-US');
-    const totalRevenue = sales.reduce((s, d) => s + d.revenue, 0);
+    const formatCurrency = (v?: number | null) => (v || 0).toLocaleString('en-US', { style: 'currency', currency: 'THB' }).replace('THB', '฿');
+    const totalRevenue = sales.reduce((s, d) => s + (d.revenue || 0), 0);
     const avgMonthly = sales.length ? Math.round(totalRevenue / sales.length) : 0;
-    const peakMonth = sales.reduce((max, d) => (d.revenue > max.revenue ? d : max), sales[0]);
-    const totalOrders = sales.reduce((s, d) => s + d.orders, 0);
+    const peakMonth = sales.reduce((max, d) => ((d.revenue || 0) > (max.revenue || 0) ? d : max), sales[0]);
+    const totalOrders = sales.reduce((s, d) => s + (d.orders || 0), 0);
 
     if (!sales.length) {
         return (
@@ -227,16 +227,16 @@ export default function AnalysisPage() {
                                 {products.map((p) => (
                                     <tr key={p.name}>
                                         <td style={{ fontWeight: 600 }}>{p.name}</td>
-                                        <td>{p.sales.toLocaleString()}</td>
+                                        <td>{(p.sales || 0).toLocaleString()}</td>
                                         <td>{formatCurrency(p.revenue)}</td>
                                         <td>
                                             <span
                                                 style={{
-                                                    color: p.growth >= 0 ? 'var(--success)' : 'var(--danger)',
+                                                    color: (p.growth || 0) >= 0 ? 'var(--success)' : 'var(--danger)',
                                                     fontWeight: 600,
                                                 }}
                                             >
-                                                {p.growth >= 0 ? '+' : ''}{p.growth}%
+                                                {(p.growth || 0) >= 0 ? '+' : ''}{p.growth || 0}%
                                             </span>
                                         </td>
                                     </tr>

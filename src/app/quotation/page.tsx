@@ -17,12 +17,18 @@ export default function QuotationPage() {
     const [quotations, setQuotations] = useState<Quotation[]>([]);
     const [search, setSearch] = useState('');
     const [statusFilter, setStatusFilter] = useState<string>('all');
+    const [yearFilter, setYearFilter] = useState<string>('2026');
+    const [monthFilter, setMonthFilter] = useState<string>('all');
     const [currentPage, setCurrentPage] = useState(1);
     const perPage = 8;
 
     useEffect(() => {
-        getQuotations().then(setQuotations);
-    }, []);
+        const filter = {
+            year: yearFilter !== 'all' ? parseInt(yearFilter) : undefined,
+            month: monthFilter !== 'all' ? parseInt(monthFilter) : undefined,
+        };
+        getQuotations(filter).then(setQuotations);
+    }, [yearFilter, monthFilter]);
 
     const filtered = quotations.filter((q) => {
         const matchSearch =
@@ -38,12 +44,12 @@ export default function QuotationPage() {
         currentPage * perPage
     );
 
-    const formatCurrency = (v: number) => '฿' + v.toLocaleString('en-US');
+    const formatCurrency = (v?: number | null) => (v || 0).toLocaleString('en-US', { style: 'currency', currency: 'THB' }).replace('THB', '฿');
 
     const countByStatus = (status: string) =>
         quotations.filter((q) => q.status === status).length;
 
-    const totalValue = quotations.reduce((s, q) => s + q.totalAmount, 0);
+    const totalValue = quotations.reduce((s, q) => s + (q.totalAmount || 0), 0);
 
     return (
         <div>
@@ -95,6 +101,41 @@ export default function QuotationPage() {
                                 }}
                             />
                         </div>
+                        <select
+                            className="filter-select"
+                            value={yearFilter}
+                            onChange={(e) => {
+                                setYearFilter(e.target.value);
+                                setCurrentPage(1);
+                            }}
+                        >
+                            <option value="all">All Year</option>
+                            <option value="2024">2024</option>
+                            <option value="2025">2025</option>
+                            <option value="2026">2026</option>
+                        </select>
+                        <select
+                            className="filter-select"
+                            value={monthFilter}
+                            onChange={(e) => {
+                                setMonthFilter(e.target.value);
+                                setCurrentPage(1);
+                            }}
+                        >
+                            <option value="all">All Month</option>
+                            <option value="1">January</option>
+                            <option value="2">February</option>
+                            <option value="3">March</option>
+                            <option value="4">April</option>
+                            <option value="5">May</option>
+                            <option value="6">June</option>
+                            <option value="7">July</option>
+                            <option value="8">August</option>
+                            <option value="9">September</option>
+                            <option value="10">October</option>
+                            <option value="11">November</option>
+                            <option value="12">December</option>
+                        </select>
                         <select
                             className="filter-select"
                             value={statusFilter}

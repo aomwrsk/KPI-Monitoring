@@ -19,26 +19,30 @@ import {
 import {
   DollarSign,
   Users,
-  FileText,
-  CalendarCheck,
+  FileBarChart,
+  ShoppingCart,
   TrendingUp,
   TrendingDown,
+  ArrowRight,
   ArrowUpRight,
   ShoppingBag,
+  Shield,
+  Clock,
+  Zap
 } from 'lucide-react';
 import {
   getDashboardStats,
   getMonthlySales,
   getProductPerformance,
   getRegionData,
-  getBookings,
+  getOrders,
 } from '@/lib/api';
 import type {
   DashboardStats,
   SalesData,
   ProductPerformance,
   RegionData,
-  Booking,
+  Order,
   DashboardFilter,
 } from '@/types';
 
@@ -49,10 +53,10 @@ export default function DashboardPage() {
   const [sales, setSales] = useState<SalesData[]>([]);
   const [products, setProducts] = useState<ProductPerformance[]>([]);
   const [regions, setRegions] = useState<RegionData[]>([]);
-  const [recentBookings, setRecentBookings] = useState<Booking[]>([]);
+  const [recentOrders, setRecentOrders] = useState<Order[]>([]);
   const [filters, setFilters] = useState<DashboardFilter>({
-    year: new Date().getFullYear().toString(),
-    month: '',
+    year: new Date().getFullYear(),
+    month: undefined,
     customerType: '',
   });
 
@@ -62,13 +66,13 @@ export default function DashboardPage() {
       getMonthlySales(filters),
       getProductPerformance(filters),
       getRegionData(filters),
-      getBookings(),
+      getOrders(filters),
     ]).then(([s, sl, p, r, b]) => {
       setStats(s);
       setSales(sl);
       setProducts(p);
       setRegions(r);
-      setRecentBookings(b.slice(0, 5));
+      setRecentOrders(b.slice(0, 5));
     });
   }, [filters]);
 
@@ -80,41 +84,41 @@ export default function DashboardPage() {
     );
   }
 
-  const formatCurrency = (v: number) =>
-    '฿' + v.toLocaleString('en-US');
+  const formatCurrency = (v?: number | null) =>
+    (v || 0).toLocaleString('en-US', { style: 'currency', currency: 'THB' }).replace('THB', '฿');
 
   const statCards = [
     {
       label: 'Total Sales',
-      value: formatCurrency(stats.totalSales),
-      trend: stats.salesGrowth,
+      value: formatCurrency(stats.totalSales || 0),
+      trend: stats.salesGrowth || 0,
       icon: DollarSign,
       color: '#6366f1',
       bg: 'rgba(99,102,241,0.12)',
     },
     {
-      label: 'Customers',
-      value: stats.totalCustomers.toLocaleString(),
-      trend: stats.customerGrowth,
+      label: 'Total Customers',
+      value: (stats.totalCustomers || 0).toLocaleString(),
+      trend: stats.customerGrowth || 0,
       icon: Users,
       color: '#06b6d4',
       bg: 'rgba(6,182,212,0.12)',
     },
     {
-      label: 'Quotations',
-      value: stats.totalQuotations.toLocaleString(),
-      trend: stats.quotationGrowth,
-      icon: FileText,
-      color: '#f59e0b',
-      bg: 'rgba(245,158,11,0.12)',
-    },
-    {
-      label: 'Bookings',
-      value: stats.totalBookings.toLocaleString(),
-      trend: stats.bookingGrowth,
-      icon: CalendarCheck,
+      label: 'Total Quotations',
+      value: (stats.totalQuotations || 0).toLocaleString(),
+      trend: stats.quotationGrowth || 0,
+      icon: FileBarChart,
       color: '#22c55e',
       bg: 'rgba(34,197,94,0.12)',
+    },
+    {
+      label: 'Total Orders',
+      value: (stats.totalOrders || 0).toLocaleString(),
+      trend: stats.orderGrowth || 0,
+      icon: ShoppingCart,
+      color: '#f59e0b',
+      bg: 'rgba(245,158,11,0.12)',
     },
   ];
 
@@ -129,8 +133,8 @@ export default function DashboardPage() {
         <div className="flex flex-wrap gap-2">
           <select
             className="tab"
-            value={filters.year}
-            onChange={(e) => setFilters({ ...filters, year: e.target.value })}
+            value={filters.year || ''}
+            onChange={(e) => setFilters({ ...filters, year: e.target.value ? parseInt(e.target.value) : undefined })}
             style={{ background: 'var(--bg-tertiary)', border: '1px solid var(--glass-border)' }}
           >
             <option value="2026">2026</option>
@@ -140,8 +144,8 @@ export default function DashboardPage() {
 
           <select
             className="tab"
-            value={filters.month}
-            onChange={(e) => setFilters({ ...filters, month: e.target.value })}
+            value={filters.month || ''}
+            onChange={(e) => setFilters({ ...filters, month: e.target.value ? parseInt(e.target.value) : undefined })}
             style={{ background: 'var(--bg-tertiary)', border: '1px solid var(--glass-border)' }}
           >
             <option value="">All Months</option>
@@ -199,7 +203,14 @@ export default function DashboardPage() {
               ) : (
                 <TrendingDown size={14} />
               )}
-              {Math.abs(card.trend)}% vs last month
+              {card.trend !== undefined ? (
+                <span>
+                  {(card.trend || 0) >= 0 ? '+' : ''}
+                  {card.trend || 0}% vs last month
+                </span>
+              ) : (
+                <span>N/A</span>
+              )}
             </div>
           </div>
         ))}
@@ -335,27 +346,27 @@ export default function DashboardPage() {
           </ResponsiveContainer>
         </div>
 
-        {/* Recent Bookings */}
+        {/* Recent Orders */}
         <div className="glass-card data-table-container fade-in">
           <div className="table-header">
-            <span className="table-title">Recent Bookings</span>
-            <a href="/booking" style={{ color: 'var(--accent-start)', fontSize: '0.85rem', textDecoration: 'none', fontWeight: 600 }}>
+            <span className="table-title">Recent Orders</span>
+            <a href="/order" style={{ color: 'var(--accent-start)', fontSize: '0.85rem', textDecoration: 'none', fontWeight: 600 }}>
               View All →
             </a>
           </div>
           <table className="data-table">
             <thead>
               <tr>
-                <th>Booking No</th>
+                <th>Order No</th>
                 <th>Customer</th>
                 <th>Amount</th>
                 <th>Status</th>
               </tr>
             </thead>
             <tbody>
-              {recentBookings.map((b) => (
+              {recentOrders.map((b) => (
                 <tr key={b.id}>
-                  <td className="font-mono" style={{ fontSize: '0.82rem' }}>{b.bookingNo}</td>
+                  <td className="font-mono" style={{ fontSize: '0.82rem' }}>{b.orderNo}</td>
                   <td>{b.customerName}</td>
                   <td>{formatCurrency(b.totalAmount)}</td>
                   <td>

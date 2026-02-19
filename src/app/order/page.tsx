@@ -2,25 +2,31 @@
 
 import { useEffect, useState } from 'react';
 import { Search, CalendarCheck, Package, CreditCard } from 'lucide-react';
-import { getBookings } from '@/lib/api';
-import type { Booking } from '@/types';
+import { getOrders } from '@/lib/api';
+import type { Order } from '@/types';
 
-export default function BookingPage() {
-    const [bookings, setBookings] = useState<Booking[]>([]);
+export default function OrderPage() {
+    const [orders, setOrders] = useState<Order[]>([]);
     const [search, setSearch] = useState('');
     const [statusFilter, setStatusFilter] = useState<string>('all');
+    const [yearFilter, setYearFilter] = useState<string>('2026');
+    const [monthFilter, setMonthFilter] = useState<string>('2');
     const [currentPage, setCurrentPage] = useState(1);
     const perPage = 8;
 
     useEffect(() => {
-        getBookings().then(setBookings);
-    }, []);
+        const filter = {
+            year: yearFilter !== 'all' ? parseInt(yearFilter) : undefined,
+            month: monthFilter !== 'all' ? parseInt(monthFilter) : undefined,
+        };
+        getOrders(filter).then(setOrders);
+    }, [yearFilter, monthFilter]);
 
-    const filtered = bookings.filter((b) => {
+    const filtered = orders.filter((o) => {
         const matchSearch =
-            b.bookingNo.toLowerCase().includes(search.toLowerCase()) ||
-            b.customerName.toLowerCase().includes(search.toLowerCase());
-        const matchStatus = statusFilter === 'all' || b.status === statusFilter;
+            o.orderNo.toLowerCase().includes(search.toLowerCase()) ||
+            o.customerName.toLowerCase().includes(search.toLowerCase());
+        const matchStatus = statusFilter === 'all' || o.status === statusFilter;
         return matchSearch && matchStatus;
     });
 
@@ -30,18 +36,18 @@ export default function BookingPage() {
         currentPage * perPage
     );
 
-    const formatCurrency = (v: number) => '฿' + v.toLocaleString('en-US');
+    const formatCurrency = (v?: number | null) => (v || 0).toLocaleString('en-US', { style: 'currency', currency: 'THB' }).replace('THB', '฿');
 
-    // Quick stats: today, this week, this month (simplified with mock)
-    const todayCount = bookings.filter((b) => b.date === '2026-02-16').length;
-    const weekCount = bookings.filter((b) => b.date >= '2026-02-10').length;
-    const monthCount = bookings.length;
-    const totalValue = bookings.reduce((s, b) => s + b.totalAmount, 0);
+    // Quick stats: today, this week, this month
+    const todayCount = orders.filter((o) => o.date === '2026-02-16').length;
+    const weekCount = orders.filter((o) => o.date >= '2026-02-10').length;
+    const monthCount = orders.length;
+    const totalValue = orders.reduce((s, o) => s + (o.totalAmount || 0), 0);
 
     return (
         <div>
-            <h1 className="page-title">Booking Management</h1>
-            <p className="page-subtitle">Track all bookings and delivery schedules.</p>
+            <h1 className="page-title">Order Management</h1>
+            <p className="page-subtitle">Track all orders. Filtering is based on <strong>Shipment Date</strong>.</p>
 
             {/* Quick Stats */}
             <div className="quick-stats">
@@ -72,14 +78,14 @@ export default function BookingPage() {
                 <div className="table-header">
                     <span className="table-title">
                         <CalendarCheck size={18} style={{ display: 'inline', marginRight: '8px', verticalAlign: 'middle' }} />
-                        Booking List
+                        Order List
                     </span>
                     <div className="table-actions">
                         <div className="search-wrapper">
                             <Search size={15} className="search-icon" />
                             <input
                                 type="text"
-                                placeholder="Search bookings..."
+                                placeholder="Search orders..."
                                 className="search-input"
                                 value={search}
                                 onChange={(e) => {
@@ -88,6 +94,41 @@ export default function BookingPage() {
                                 }}
                             />
                         </div>
+                        <select
+                            className="filter-select"
+                            value={yearFilter}
+                            onChange={(e) => {
+                                setYearFilter(e.target.value);
+                                setCurrentPage(1);
+                            }}
+                        >
+                            <option value="all">All Year</option>
+                            <option value="2024">2024</option>
+                            <option value="2025">2025</option>
+                            <option value="2026">2026</option>
+                        </select>
+                        <select
+                            className="filter-select"
+                            value={monthFilter}
+                            onChange={(e) => {
+                                setMonthFilter(e.target.value);
+                                setCurrentPage(1);
+                            }}
+                        >
+                            <option value="all">All Month</option>
+                            <option value="1">January</option>
+                            <option value="2">February</option>
+                            <option value="3">March</option>
+                            <option value="4">April</option>
+                            <option value="5">May</option>
+                            <option value="6">June</option>
+                            <option value="7">July</option>
+                            <option value="8">August</option>
+                            <option value="9">September</option>
+                            <option value="10">October</option>
+                            <option value="11">November</option>
+                            <option value="12">December</option>
+                        </select>
                         <select
                             className="filter-select"
                             value={statusFilter}
@@ -109,7 +150,7 @@ export default function BookingPage() {
                 <table className="data-table">
                     <thead>
                         <tr>
-                            <th>Booking No</th>
+                            <th>Order No</th>
                             <th>Customer</th>
                             <th>Date</th>
                             <th>Delivery</th>
@@ -120,17 +161,17 @@ export default function BookingPage() {
                         </tr>
                     </thead>
                     <tbody>
-                        {paginated.map((b) => (
-                            <tr key={b.id}>
+                        {paginated.map((o) => (
+                            <tr key={o.id}>
                                 <td className="font-mono" style={{ fontSize: '0.82rem', fontWeight: 600 }}>
-                                    {b.bookingNo}
+                                    {o.orderNo}
                                 </td>
-                                <td>{b.customerName}</td>
+                                <td>{o.customerName}</td>
                                 <td style={{ color: 'var(--text-secondary)', fontSize: '0.85rem' }}>
-                                    {b.date}
+                                    {o.date}
                                 </td>
                                 <td style={{ color: 'var(--text-secondary)', fontSize: '0.85rem' }}>
-                                    {b.deliveryDate}
+                                    {o.shipment_date ? new Date(o.shipment_date).toLocaleDateString() : '-'}
                                 </td>
                                 <td>
                                     <span
@@ -142,16 +183,16 @@ export default function BookingPage() {
                                         }}
                                     >
                                         <Package size={13} style={{ color: 'var(--text-muted)' }} />
-                                        {b.items.length} item{b.items.length > 1 ? 's' : ''}
+                                        {o.items.length} item{o.items.length > 1 ? 's' : ''}
                                     </span>
                                 </td>
-                                <td style={{ fontWeight: 600 }}>{formatCurrency(b.totalAmount)}</td>
+                                <td style={{ fontWeight: 600 }}>{formatCurrency(o.totalAmount)}</td>
                                 <td>
-                                    <span className={`badge badge-${b.status}`}>{b.status}</span>
+                                    <span className={`badge badge-${o.status}`}>{o.status}</span>
                                 </td>
                                 <td>
-                                    <span className={`badge badge-${b.paymentStatus}`}>
-                                        <CreditCard size={11} /> {b.paymentStatus}
+                                    <span className={`badge badge-${o.paymentStatus}`}>
+                                        <CreditCard size={11} /> {o.paymentStatus}
                                     </span>
                                 </td>
                             </tr>

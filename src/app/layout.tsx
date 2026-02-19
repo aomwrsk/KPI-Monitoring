@@ -9,7 +9,7 @@ import { SidebarProvider } from '@/components/SidebarProvider';
 export const metadata: Metadata = {
   title: 'AntiGravity — Sales Monitor',
   description:
-    'Premium sales monitoring dashboard for tracking revenue, customers, quotations, bookings, and analytics.',
+    'Premium sales monitoring dashboard for tracking revenue, customers, quotations, orders, and analytics.',
 };
 
 export default function RootLayout({

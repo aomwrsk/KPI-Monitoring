@@ -2,7 +2,7 @@ import axios from 'axios';
 import {
     Customer,
     Quotation,
-    Booking,
+    Order,
     SalesData,
     DashboardStats,
     ProductPerformance,
@@ -23,6 +23,18 @@ const apiClient = API_URL
     })
     : null;
 
+// Helper: sanitize filter object by removing undefined/null values
+function cleanFilters(filters?: DashboardFilter): Record<string, string> {
+    if (!filters) return {};
+    const cleaned: Record<string, string> = {};
+    Object.entries(filters).forEach(([key, value]) => {
+        if (value !== undefined && value !== null && value !== '') {
+            cleaned[key] = value.toString();
+        }
+    });
+    return cleaned;
+}
+
 // Helper: fetch from API or return mock data
 async function fetchOrMock<T>(endpoint: string, mockData: T): Promise<T> {
     if (!apiClient) return mockData;
@@ -37,28 +49,29 @@ async function fetchOrMock<T>(endpoint: string, mockData: T): Promise<T> {
 
 // Dashboard
 export async function getDashboardStats(filters?: DashboardFilter): Promise<DashboardStats> {
-    const query = filters ? new URLSearchParams(filters as any).toString() : '';
+    const query = new URLSearchParams(cleanFilters(filters)).toString();
     return fetchOrMock(`/api/dashboard/stats?${query}`, mock.dashboardStats);
 }
 
 export async function getMonthlySales(filters?: DashboardFilter): Promise<SalesData[]> {
-    const query = filters ? new URLSearchParams(filters as any).toString() : '';
+    const query = new URLSearchParams(cleanFilters(filters)).toString();
     return fetchOrMock(`/api/dashboard/monthly-sales?${query}`, mock.monthlySales);
 }
 
 export async function getProductPerformance(filters?: DashboardFilter): Promise<ProductPerformance[]> {
-    const query = filters ? new URLSearchParams(filters as any).toString() : '';
+    const query = new URLSearchParams(cleanFilters(filters)).toString();
     return fetchOrMock(`/api/dashboard/products?${query}`, mock.productPerformance);
 }
 
 export async function getRegionData(filters?: DashboardFilter): Promise<RegionData[]> {
-    const query = filters ? new URLSearchParams(filters as any).toString() : '';
+    const query = new URLSearchParams(cleanFilters(filters)).toString();
     return fetchOrMock(`/api/dashboard/regions?${query}`, mock.regionData);
 }
 
 // Customers
-export async function getCustomers(): Promise<Customer[]> {
-    return fetchOrMock('/api/customers', mock.customers);
+export async function getCustomers(filters?: DashboardFilter): Promise<Customer[]> {
+    const query = new URLSearchParams(cleanFilters(filters)).toString();
+    return fetchOrMock(`/api/customers?${query}`, mock.customers);
 }
 
 export async function getCustomerById(id: string): Promise<Customer | undefined> {
@@ -72,13 +85,15 @@ export async function getCustomerById(id: string): Promise<Customer | undefined>
 }
 
 // Quotations
-export async function getQuotations(): Promise<Quotation[]> {
-    return fetchOrMock('/api/quotations', mock.quotations);
+export async function getQuotations(filters?: DashboardFilter): Promise<Quotation[]> {
+    const query = new URLSearchParams(cleanFilters(filters)).toString();
+    return fetchOrMock(`/api/quotations?${query}`, mock.quotations);
 }
 
-// Bookings
-export async function getBookings(): Promise<Booking[]> {
-    return fetchOrMock('/api/bookings', mock.bookings);
+// Orders
+export async function getOrders(filters?: DashboardFilter): Promise<Order[]> {
+    const query = new URLSearchParams(cleanFilters(filters)).toString();
+    return fetchOrMock(`/api/orders?${query}`, mock.orders);
 }
 
 // Analysis

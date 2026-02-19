@@ -1,7 +1,7 @@
 import {
     Customer,
     Quotation,
-    Booking,
+    Order,
     SalesData,
     ProductPerformance,
     RegionData,
@@ -14,11 +14,11 @@ export const dashboardStats: DashboardStats = {
     totalSales: 2847650,
     totalCustomers: 1284,
     totalQuotations: 456,
-    totalBookings: 389,
+    totalOrders: 389,
     salesGrowth: 12.5,
     customerGrowth: 8.3,
     quotationGrowth: -2.1,
-    bookingGrowth: 15.7,
+    orderGrowth: 15.7,
 };
 
 export const monthlySales: SalesData[] = [
@@ -79,22 +79,22 @@ export const quotations: Quotation[] = [
     { id: '5', quotationNo: 'QT-2026-005', customerName: 'Wichai Rattana', date: '2026-02-08', expiryDate: '2026-03-08', items: [{ id: '1', productName: 'Ultimate Plan G', quantity: 2, unitPrice: 15000, total: 30000 }], totalAmount: 30000, status: 'rejected', createdBy: 'Sales Team' },
     { id: '6', quotationNo: 'QT-2026-006', customerName: 'Naree Boonma', date: '2026-02-05', expiryDate: '2026-03-05', items: [{ id: '1', productName: 'Basic Package D', quantity: 200, unitPrice: 150, total: 30000 }], totalAmount: 30000, status: 'accepted', createdBy: 'Admin' },
     { id: '7', quotationNo: 'QT-2026-007', customerName: 'Prasit Kaewkla', date: '2026-02-03', expiryDate: '2026-03-03', items: [{ id: '1', productName: 'Custom Solution H', quantity: 1, unitPrice: 25000, total: 25000 }], totalAmount: 25000, status: 'expired', createdBy: 'Admin' },
-    { id: '8', quotationNo: 'QT-2026-008', customerName: 'Duangjai Phrom', date: '2026-02-01', expiryDate: '2026-03-01', items: [{ id: '1', productName: 'Starter Pack F', quantity: 150, unitPrice: 150, total: 22500 }], totalAmount: 22500, status: 'sent', createdBy: 'Sales Team' },
+    { id: '8', quotationNo: 'QT-2026-010', customerName: 'Duangjai Phrom', date: '2026-02-01', expiryDate: '2026-03-01', items: [{ id: '1', productName: 'Starter Pack F', quantity: 150, unitPrice: 150, total: 22500 }], totalAmount: 22500, status: 'sent', createdBy: 'Sales Team' },
     { id: '9', quotationNo: 'QT-2026-009', customerName: 'Chaiwat Pongsa', date: '2026-01-28', expiryDate: '2026-02-28', items: [{ id: '1', productName: 'Premium Widget A', quantity: 80, unitPrice: 450, total: 36000 }], totalAmount: 36000, status: 'accepted', createdBy: 'Admin' },
     { id: '10', quotationNo: 'QT-2026-010', customerName: 'Suda Mingkwan', date: '2026-01-25', expiryDate: '2026-02-25', items: [{ id: '1', productName: 'Standard Kit B', quantity: 30, unitPrice: 400, total: 12000 }], totalAmount: 12000, status: 'draft', createdBy: 'Sales Team' },
 ];
 
-export const bookings: Booking[] = [
-    { id: '1', bookingNo: 'BK-2026-001', customerName: 'Kittipong Chai', date: '2026-02-16', deliveryDate: '2026-02-25', items: ['Enterprise Suite C x5'], totalAmount: 75000, status: 'confirmed', paymentStatus: 'paid', notes: 'Priority delivery' },
-    { id: '2', bookingNo: 'BK-2026-002', customerName: 'Somchai Jaidee', date: '2026-02-15', deliveryDate: '2026-02-28', items: ['Premium Widget A x50'], totalAmount: 22500, status: 'processing', paymentStatus: 'partial', notes: '' },
-    { id: '3', bookingNo: 'BK-2026-003', customerName: 'Arthit Srisuk', date: '2026-02-14', deliveryDate: '2026-02-22', items: ['Pro Bundle E x20', 'Starter Pack F x10'], totalAmount: 15500, status: 'completed', paymentStatus: 'paid', notes: 'Regular customer' },
-    { id: '4', bookingNo: 'BK-2026-004', customerName: 'Naree Boonma', date: '2026-02-13', deliveryDate: '2026-02-26', items: ['Basic Package D x200'], totalAmount: 30000, status: 'pending', paymentStatus: 'unpaid', notes: 'Awaiting approval' },
-    { id: '5', bookingNo: 'BK-2026-005', customerName: 'Chaiwat Pongsa', date: '2026-02-12', deliveryDate: '2026-02-20', items: ['Premium Widget A x80'], totalAmount: 36000, status: 'confirmed', paymentStatus: 'paid', notes: '' },
-    { id: '6', bookingNo: 'BK-2026-006', customerName: 'Pranee Sukjai', date: '2026-02-11', deliveryDate: '2026-02-24', items: ['Standard Kit B x100'], totalAmount: 40000, status: 'processing', paymentStatus: 'partial', notes: 'Second batch' },
-    { id: '7', bookingNo: 'BK-2026-007', customerName: 'Prasit Kaewkla', date: '2026-02-10', deliveryDate: '2026-02-18', items: ['Custom Solution H x1'], totalAmount: 25000, status: 'completed', paymentStatus: 'paid', notes: 'Custom installation required' },
-    { id: '8', bookingNo: 'BK-2026-008', customerName: 'Wichai Rattana', date: '2026-02-09', deliveryDate: '2026-02-23', items: ['Ultimate Plan G x2'], totalAmount: 30000, status: 'cancelled', paymentStatus: 'unpaid', notes: 'Customer requested cancellation' },
-    { id: '9', bookingNo: 'BK-2026-009', customerName: 'Duangjai Phrom', date: '2026-02-08', deliveryDate: '2026-02-19', items: ['Starter Pack F x150'], totalAmount: 22500, status: 'pending', paymentStatus: 'unpaid', notes: '' },
-    { id: '10', bookingNo: 'BK-2026-010', customerName: 'Kannika Sripai', date: '2026-02-07', deliveryDate: '2026-02-21', items: ['Basic Package D x50'], totalAmount: 7500, status: 'confirmed', paymentStatus: 'paid', notes: 'New customer' },
+export const orders: Order[] = [
+    { id: '1', orderNo: 'BK-2026-001', customerName: 'Kittipong Chai', date: '2026-02-16', deliveryDate: '2026-02-25', items: ['Enterprise Suite C x5'], totalAmount: 75000, status: 'confirmed', paymentStatus: 'paid', notes: 'Priority delivery' },
+    { id: '2', orderNo: 'BK-2026-002', customerName: 'Somchai Jaidee', date: '2026-02-15', deliveryDate: '2026-02-28', items: ['Premium Widget A x50'], totalAmount: 22500, status: 'processing', paymentStatus: 'partial', notes: '' },
+    { id: '3', orderNo: 'BK-2026-003', customerName: 'Arthit Srisuk', date: '2026-02-14', deliveryDate: '2026-02-22', items: ['Pro Bundle E x20', 'Starter Pack F x10'], totalAmount: 15500, status: 'completed', paymentStatus: 'paid', notes: 'Regular customer' },
+    { id: '4', orderNo: 'BK-2026-004', customerName: 'Naree Boonma', date: '2026-02-13', deliveryDate: '2026-02-26', items: ['Basic Package D x200'], totalAmount: 30000, status: 'pending', paymentStatus: 'unpaid', notes: 'Awaiting approval' },
+    { id: '5', orderNo: 'BK-2026-005', customerName: 'Chaiwat Pongsa', date: '2026-02-12', deliveryDate: '2026-02-20', items: ['Premium Widget A x80'], totalAmount: 36000, status: 'confirmed', paymentStatus: 'paid', notes: '' },
+    { id: '6', orderNo: 'BK-2026-006', customerName: 'Pranee Sukjai', date: '2026-02-11', deliveryDate: '2026-02-24', items: ['Standard Kit B x100'], totalAmount: 40000, status: 'processing', paymentStatus: 'partial', notes: 'Second batch' },
+    { id: '7', orderNo: 'BK-2026-007', customerName: 'Prasit Kaewkla', date: '2026-02-10', deliveryDate: '2026-02-18', items: ['Custom Solution H x1'], totalAmount: 25000, status: 'completed', paymentStatus: 'paid', notes: 'Custom installation required' },
+    { id: '8', orderNo: 'BK-2026-008', customerName: 'Wichai Rattana', date: '2026-02-09', deliveryDate: '2026-02-23', items: ['Ultimate Plan G x2'], totalAmount: 30000, status: 'cancelled', paymentStatus: 'unpaid', notes: 'Customer requested cancellation' },
+    { id: '9', orderNo: 'BK-2026-009', customerName: 'Duangjai Phrom', date: '2026-02-08', deliveryDate: '2026-02-19', items: ['Starter Pack F x150'], totalAmount: 22500, status: 'pending', paymentStatus: 'unpaid', notes: '' },
+    { id: '10', orderNo: 'BK-2026-010', customerName: 'Kannika Sripai', date: '2026-02-07', deliveryDate: '2026-02-21', items: ['Basic Package D x50'], totalAmount: 7500, status: 'confirmed', paymentStatus: 'paid', notes: 'New customer' },
 ];
 
 export const reportTemplates: ReportTemplate[] = [
@@ -115,7 +115,6 @@ export const reportData: ReportData[] = [
     { period: 'Sep 2025', totalRevenue: 271000, totalOrders: 172, avgOrderValue: 1576, topProduct: 'Custom Solution H', topCustomer: 'Prasit Kaewkla' },
 ];
 
-// Analysis comparison data
 export const yearlyComparison = [
     { month: 'Jan', thisYear: 325000, lastYear: 265000 },
     { month: 'Feb', thisYear: 350000, lastYear: 280000 },

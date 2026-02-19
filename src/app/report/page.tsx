@@ -39,7 +39,7 @@ export default function ReportPage() {
             ? templates
             : templates.filter((t) => t.category === categoryFilter);
 
-    const formatCurrency = (v: number) => '฿' + v.toLocaleString('en-US');
+    const formatCurrency = (v?: number | null) => (v || 0).toLocaleString('en-US', { style: 'currency', currency: 'THB' }).replace('THB', '฿');
 
     return (
         <div>

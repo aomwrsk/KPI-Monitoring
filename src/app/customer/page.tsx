@@ -9,12 +9,18 @@ export default function CustomerPage() {
     const [customers, setCustomers] = useState<Customer[]>([]);
     const [search, setSearch] = useState('');
     const [statusFilter, setStatusFilter] = useState<string>('all');
+    const [yearFilter, setYearFilter] = useState<string>('2026');
+    const [monthFilter, setMonthFilter] = useState<string>('all');
     const [currentPage, setCurrentPage] = useState(1);
     const perPage = 8;
 
     useEffect(() => {
-        getCustomers().then(setCustomers);
-    }, []);
+        const filter = {
+            year: yearFilter !== 'all' ? parseInt(yearFilter) : undefined,
+            month: monthFilter !== 'all' ? parseInt(monthFilter) : undefined,
+        };
+        getCustomers(filter).then(setCustomers);
+    }, [yearFilter, monthFilter]);
 
     const filtered = customers.filter((c) => {
         const matchSearch =
@@ -31,10 +37,10 @@ export default function CustomerPage() {
         currentPage * perPage
     );
 
-    const formatCurrency = (v: number) => '฿' + v.toLocaleString('en-US');
+    const formatCurrency = (v?: number | null) => (v || 0).toLocaleString('en-US', { style: 'currency', currency: 'THB' }).replace('THB', '฿');
 
     const totalActive = customers.filter((c) => c.status === 'active').length;
-    const totalRevenue = customers.reduce((sum, c) => sum + c.totalSpend, 0);
+    const totalRevenue = customers.reduce((sum, c) => sum + (c.totalSpend || 0), 0);
     const avgSpend = customers.length
         ? Math.round(totalRevenue / customers.length)
         : 0;
@@ -86,6 +92,41 @@ export default function CustomerPage() {
                                 }}
                             />
                         </div>
+                        <select
+                            className="filter-select"
+                            value={yearFilter}
+                            onChange={(e) => {
+                                setYearFilter(e.target.value);
+                                setCurrentPage(1);
+                            }}
+                        >
+                            <option value="all">All Year</option>
+                            <option value="2024">2024</option>
+                            <option value="2025">2025</option>
+                            <option value="2026">2026</option>
+                        </select>
+                        <select
+                            className="filter-select"
+                            value={monthFilter}
+                            onChange={(e) => {
+                                setMonthFilter(e.target.value);
+                                setCurrentPage(1);
+                            }}
+                        >
+                            <option value="all">All Month</option>
+                            <option value="1">January</option>
+                            <option value="2">February</option>
+                            <option value="3">March</option>
+                            <option value="4">April</option>
+                            <option value="5">May</option>
+                            <option value="6">June</option>
+                            <option value="7">July</option>
+                            <option value="8">August</option>
+                            <option value="9">September</option>
+                            <option value="10">October</option>
+                            <option value="11">November</option>
+                            <option value="12">December</option>
+                        </select>
                         <select
                             className="filter-select"
                             value={statusFilter}

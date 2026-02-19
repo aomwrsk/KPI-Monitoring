@@ -18,7 +18,7 @@ const navItems = [
   { href: '/', label: 'Dashboard', icon: LayoutDashboard },
   { href: '/customer', label: 'Customer', icon: Users },
   { href: '/quotation', label: 'Quotation', icon: FileText },
-  { href: '/booking', label: 'Booking', icon: CalendarCheck },
+  { href: '/order', label: 'Order', icon: CalendarCheck },
   { href: '/analysis', label: 'Analysis', icon: BarChart3 },
   { href: '/report', label: 'Report', icon: ClipboardList },
 ];

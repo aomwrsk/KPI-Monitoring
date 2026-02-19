@@ -39,3 +39,12 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# .NET
+bin/
+obj/
+.vscode/
+appsettings.Development.json
+*.user
+*.pdb
+*.suo

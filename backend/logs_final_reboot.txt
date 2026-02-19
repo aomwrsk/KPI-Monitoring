@@ -1,0 +1,1004 @@
+Using launch settings from .\Properties\launchSettings.json...
+Building...
+Using Database: 203.151.66.176 (EntechWebDB)
+info: Microsoft.Hosting.Lifetime[14]
+      Now listening on: http://localhost:5162
+info: Microsoft.Hosting.Lifetime[0]
+      Application started. Press Ctrl+C to shut down.
+info: Microsoft.Hosting.Lifetime[0]
+      Hosting environment: Development
+info: Microsoft.Hosting.Lifetime[0]
+      Content root path: D:\project\antigravity\backend
+warn: Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware[3]
+      Failed to determine the https port for redirect.
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (80ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      
+                      SELECT q.qt_no, q.customer_name, q.qt_date, q.so_amount, q.is_status, q.expiration_qt_date, 
+                             s.fname AS staff_name
+                      FROM cost_sheet_head q
+                      LEFT JOIN hr_staff s ON q.staff_id = s.staff_id WHERE YEAR(qt_date) = 2026
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (33ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT * FROM appoint_head WHERE YEAR(record_date) = 2026
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (63ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT * FROM appoint_head WHERE YEAR(record_date) = 2026
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (26ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      
+                      SELECT q.qt_no, q.customer_name, q.qt_date, q.so_amount, q.is_status, q.expiration_qt_date, 
+                             s.fname AS staff_name
+                      FROM cost_sheet_head q
+                      LEFT JOIN hr_staff s ON q.staff_id = s.staff_id WHERE YEAR(qt_date) = 2026
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (18ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      
+                      SELECT q.qt_no, q.customer_name, q.qt_date, q.so_amount, q.is_status, q.expiration_qt_date, 
+                             s.fname AS staff_name
+                      FROM cost_sheet_head q
+                      LEFT JOIN hr_staff s ON q.staff_id = s.staff_id WHERE YEAR(qt_date) = 2026
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/1.1 GET http://localhost:5162/api/dashboard/stats?year=2026 - - -
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/1.1 GET http://localhost:5162/api/dashboard/monthly-sales?year=2026 - - -
+info: Microsoft.AspNetCore.Cors.Infrastructure.CorsService[4]
+      CORS policy execution successful.
+info: Microsoft.AspNetCore.Cors.Infrastructure.CorsService[4]
+      CORS policy execution successful.
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'SalesMonitor.API.Controllers.DashboardController.GetMonthlySales (SalesMonitor.API)'
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'SalesMonitor.API.Controllers.DashboardController.GetStats (SalesMonitor.API)'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/1.1 GET http://localhost:5162/api/dashboard/products?year=2026 - - -
+info: Microsoft.AspNetCore.Cors.Infrastructure.CorsService[4]
+      CORS policy execution successful.
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'SalesMonitor.API.Controllers.DashboardController.GetProducts (SalesMonitor.API)'
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[102]
+      Route matched with {action = "GetMonthlySales", controller = "Dashboard"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[SalesMonitor.API.Models.SalesData]] GetMonthlySales(System.Nullable`1[System.Int32], System.Nullable`1[System.Int32], System.String) on controller SalesMonitor.API.Controllers.DashboardController (SalesMonitor.API).
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[102]
+      Route matched with {action = "GetStats", controller = "Dashboard"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[SalesMonitor.API.Models.DashboardStats] GetStats(System.Nullable`1[System.Int32], System.Nullable`1[System.Int32], System.String) on controller SalesMonitor.API.Controllers.DashboardController (SalesMonitor.API).
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[102]
+      Route matched with {action = "GetProducts", controller = "Dashboard"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[SalesMonitor.API.Models.ProductPerformance]] GetProducts(System.Nullable`1[System.Int32], System.Nullable`1[System.Int32], System.String) on controller SalesMonitor.API.Controllers.DashboardController (SalesMonitor.API).
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor[1]
+      Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[SalesMonitor.API.Models.SalesData, SalesMonitor.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor[1]
+      Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[SalesMonitor.API.Models.ProductPerformance, SalesMonitor.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/1.1 GET http://localhost:5162/api/orders?year=2026 - - -
+info: Microsoft.AspNetCore.Cors.Infrastructure.CorsService[4]
+      CORS policy execution successful.
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'SalesMonitor.API.Controllers.OrdersController.GetAll (SalesMonitor.API)'
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[102]
+      Route matched with {action = "GetAll", controller = "Orders"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[SalesMonitor.API.Models.Order]] GetAll(System.Nullable`1[System.Int32], System.Nullable`1[System.Int32]) on controller SalesMonitor.API.Controllers.OrdersController (SalesMonitor.API).
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/1.1 GET http://localhost:5162/api/dashboard/regions?year=2026 - - -
+info: Microsoft.AspNetCore.Cors.Infrastructure.CorsService[4]
+      CORS policy execution successful.
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'SalesMonitor.API.Controllers.DashboardController.GetRegions (SalesMonitor.API)'
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[102]
+      Route matched with {action = "GetRegions", controller = "Dashboard"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[SalesMonitor.API.Models.RegionData]] GetRegions(System.Nullable`1[System.Int32], System.Nullable`1[System.Int32], System.String) on controller SalesMonitor.API.Controllers.DashboardController (SalesMonitor.API).
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor[1]
+      Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[SalesMonitor.API.Models.RegionData, SalesMonitor.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[105]
+      Executed action SalesMonitor.API.Controllers.DashboardController.GetRegions (SalesMonitor.API) in 7.9674ms
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[105]
+      Executed action SalesMonitor.API.Controllers.DashboardController.GetProducts (SalesMonitor.API) in 33.2466ms
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[105]
+      Executed action SalesMonitor.API.Controllers.DashboardController.GetMonthlySales (SalesMonitor.API) in 30.4494ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'SalesMonitor.API.Controllers.DashboardController.GetProducts (SalesMonitor.API)'
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'SalesMonitor.API.Controllers.DashboardController.GetMonthlySales (SalesMonitor.API)'
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'SalesMonitor.API.Controllers.DashboardController.GetRegions (SalesMonitor.API)'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/1.1 GET http://localhost:5162/api/dashboard/monthly-sales?year=2026 - 200 - application/json;+charset=utf-8 69.2774ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/1.1 GET http://localhost:5162/api/dashboard/products?year=2026 - 200 - application/json;+charset=utf-8 48.3188ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/1.1 GET http://localhost:5162/api/dashboard/monthly-sales?year=2026 - - -
+info: Microsoft.AspNetCore.Cors.Infrastructure.CorsService[4]
+      CORS policy execution successful.
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'SalesMonitor.API.Controllers.DashboardController.GetMonthlySales (SalesMonitor.API)'
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[102]
+      Route matched with {action = "GetMonthlySales", controller = "Dashboard"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[SalesMonitor.API.Models.SalesData]] GetMonthlySales(System.Nullable`1[System.Int32], System.Nullable`1[System.Int32], System.String) on controller SalesMonitor.API.Controllers.DashboardController (SalesMonitor.API).
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor[1]
+      Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[SalesMonitor.API.Models.SalesData, SalesMonitor.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[105]
+      Executed action SalesMonitor.API.Controllers.DashboardController.GetMonthlySales (SalesMonitor.API) in 0.4694ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'SalesMonitor.API.Controllers.DashboardController.GetMonthlySales (SalesMonitor.API)'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/1.1 GET http://localhost:5162/api/dashboard/monthly-sales?year=2026 - 200 - application/json;+charset=utf-8 0.8210ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/1.1 GET http://localhost:5162/api/dashboard/products?year=2026 - - -
+info: Microsoft.AspNetCore.Cors.Infrastructure.CorsService[4]
+      CORS policy execution successful.
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'SalesMonitor.API.Controllers.DashboardController.GetProducts (SalesMonitor.API)'
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[102]
+      Route matched with {action = "GetProducts", controller = "Dashboard"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[SalesMonitor.API.Models.ProductPerformance]] GetProducts(System.Nullable`1[System.Int32], System.Nullable`1[System.Int32], System.String) on controller SalesMonitor.API.Controllers.DashboardController (SalesMonitor.API).
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor[1]
+      Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[SalesMonitor.API.Models.ProductPerformance, SalesMonitor.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[105]
+      Executed action SalesMonitor.API.Controllers.DashboardController.GetProducts (SalesMonitor.API) in 0.2655ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'SalesMonitor.API.Controllers.DashboardController.GetProducts (SalesMonitor.API)'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/1.1 GET http://localhost:5162/api/dashboard/products?year=2026 - 200 - application/json;+charset=utf-8 0.4084ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/1.1 GET http://localhost:5162/api/dashboard/regions?year=2026 - 200 - application/json;+charset=utf-8 21.1896ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/1.1 GET http://localhost:5162/api/dashboard/regions?year=2026 - - -
+info: Microsoft.AspNetCore.Cors.Infrastructure.CorsService[4]
+      CORS policy execution successful.
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'SalesMonitor.API.Controllers.DashboardController.GetRegions (SalesMonitor.API)'
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[102]
+      Route matched with {action = "GetRegions", controller = "Dashboard"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[SalesMonitor.API.Models.RegionData]] GetRegions(System.Nullable`1[System.Int32], System.Nullable`1[System.Int32], System.String) on controller SalesMonitor.API.Controllers.DashboardController (SalesMonitor.API).
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor[1]
+      Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[SalesMonitor.API.Models.RegionData, SalesMonitor.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[105]
+      Executed action SalesMonitor.API.Controllers.DashboardController.GetRegions (SalesMonitor.API) in 0.2902ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'SalesMonitor.API.Controllers.DashboardController.GetRegions (SalesMonitor.API)'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/1.1 GET http://localhost:5162/api/dashboard/regions?year=2026 - 200 - application/json;+charset=utf-8 0.4518ms
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (15ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT * FROM order_head WHERE YEAR(shipment_date) = 2026
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor[1]
+      Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[SalesMonitor.API.Models.Order, SalesMonitor.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[105]
+      Executed action SalesMonitor.API.Controllers.OrdersController.GetAll (SalesMonitor.API) in 81.0394ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'SalesMonitor.API.Controllers.OrdersController.GetAll (SalesMonitor.API)'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/1.1 GET http://localhost:5162/api/orders?year=2026 - 200 - application/json;+charset=utf-8 83.9727ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/1.1 GET http://localhost:5162/api/orders?year=2026 - - -
+info: Microsoft.AspNetCore.Cors.Infrastructure.CorsService[4]
+      CORS policy execution successful.
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'SalesMonitor.API.Controllers.OrdersController.GetAll (SalesMonitor.API)'
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[102]
+      Route matched with {action = "GetAll", controller = "Orders"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[SalesMonitor.API.Models.Order]] GetAll(System.Nullable`1[System.Int32], System.Nullable`1[System.Int32]) on controller SalesMonitor.API.Controllers.OrdersController (SalesMonitor.API).
+warn: Microsoft.EntityFrameworkCore.Query[10103]
+      The query uses the 'First'/'FirstOrDefault' operator without 'OrderBy' and filter operators. This may lead to unpredictable results.
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (28ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT * FROM order_head WHERE YEAR(shipment_date) = 2026
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor[1]
+      Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[SalesMonitor.API.Models.Order, SalesMonitor.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[105]
+      Executed action SalesMonitor.API.Controllers.OrdersController.GetAll (SalesMonitor.API) in 37.6896ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'SalesMonitor.API.Controllers.OrdersController.GetAll (SalesMonitor.API)'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/1.1 GET http://localhost:5162/api/orders?year=2026 - 200 - application/json;+charset=utf-8 38.2114ms
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1,908ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [s].[Value]
+      FROM (
+          SELECT ISNULL(SUM(total_before_vat), 0) AS Value FROM VIEW_SO_SUM WHERE YEAR(shipment_date) = 2026
+      ) AS [s]
+warn: Microsoft.EntityFrameworkCore.Query[10103]
+      The query uses the 'First'/'FirstOrDefault' operator without 'OrderBy' and filter operators. This may lead to unpredictable results.
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (16ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [s].[Value]
+      FROM (
+          SELECT COUNT(*) AS Value FROM appoint_head WHERE YEAR(record_date) = 2026
+      ) AS [s]
+warn: Microsoft.EntityFrameworkCore.Query[10103]
+      The query uses the 'First'/'FirstOrDefault' operator without 'OrderBy' and filter operators. This may lead to unpredictable results.
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (9ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [s].[Value]
+      FROM (
+          SELECT COUNT(*) AS Value FROM cost_sheet_head WHERE YEAR(qt_date) = 2026
+      ) AS [s]
+warn: Microsoft.EntityFrameworkCore.Query[10103]
+      The query uses the 'First'/'FirstOrDefault' operator without 'OrderBy' and filter operators. This may lead to unpredictable results.
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (10ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [s].[Value]
+      FROM (
+          SELECT COUNT(*) AS Value FROM order_head WHERE YEAR(shipment_date) = 2026
+      ) AS [s]
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor[1]
+      Executing OkObjectResult, writing value of type 'SalesMonitor.API.Models.DashboardStats'.
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[105]
+      Executed action SalesMonitor.API.Controllers.DashboardController.GetStats (SalesMonitor.API) in 2118.5239ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'SalesMonitor.API.Controllers.DashboardController.GetStats (SalesMonitor.API)'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/1.1 GET http://localhost:5162/api/dashboard/stats?year=2026 - 200 - application/json;+charset=utf-8 2147.0033ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/1.1 GET http://localhost:5162/api/dashboard/stats?year=2026 - - -
+info: Microsoft.AspNetCore.Cors.Infrastructure.CorsService[4]
+      CORS policy execution successful.
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'SalesMonitor.API.Controllers.DashboardController.GetStats (SalesMonitor.API)'
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[102]
+      Route matched with {action = "GetStats", controller = "Dashboard"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[SalesMonitor.API.Models.DashboardStats] GetStats(System.Nullable`1[System.Int32], System.Nullable`1[System.Int32], System.String) on controller SalesMonitor.API.Controllers.DashboardController (SalesMonitor.API).
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (66ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [s].[Value]
+      FROM (
+          SELECT ISNULL(SUM(total_before_vat), 0) AS Value FROM VIEW_SO_SUM WHERE YEAR(shipment_date) = 2026
+      ) AS [s]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (15ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [s].[Value]
+      FROM (
+          SELECT COUNT(*) AS Value FROM appoint_head WHERE YEAR(record_date) = 2026
+      ) AS [s]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (11ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [s].[Value]
+      FROM (
+          SELECT COUNT(*) AS Value FROM cost_sheet_head WHERE YEAR(qt_date) = 2026
+      ) AS [s]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (56ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [s].[Value]
+      FROM (
+          SELECT COUNT(*) AS Value FROM order_head WHERE YEAR(shipment_date) = 2026
+      ) AS [s]
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor[1]
+      Executing OkObjectResult, writing value of type 'SalesMonitor.API.Models.DashboardStats'.
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[105]
+      Executed action SalesMonitor.API.Controllers.DashboardController.GetStats (SalesMonitor.API) in 152.965ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'SalesMonitor.API.Controllers.DashboardController.GetStats (SalesMonitor.API)'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/1.1 GET http://localhost:5162/api/dashboard/stats?year=2026 - 200 - application/json;+charset=utf-8 153.2600ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/1.1 GET http://localhost:5162/api/dashboard/stats?year=2026&month=1 - - -
+info: Microsoft.AspNetCore.Cors.Infrastructure.CorsService[4]
+      CORS policy execution successful.
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'SalesMonitor.API.Controllers.DashboardController.GetStats (SalesMonitor.API)'
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[102]
+      Route matched with {action = "GetStats", controller = "Dashboard"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[SalesMonitor.API.Models.DashboardStats] GetStats(System.Nullable`1[System.Int32], System.Nullable`1[System.Int32], System.String) on controller SalesMonitor.API.Controllers.DashboardController (SalesMonitor.API).
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/1.1 GET http://localhost:5162/api/dashboard/monthly-sales?year=2026&month=1 - - -
+info: Microsoft.AspNetCore.Cors.Infrastructure.CorsService[4]
+      CORS policy execution successful.
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'SalesMonitor.API.Controllers.DashboardController.GetMonthlySales (SalesMonitor.API)'
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[102]
+      Route matched with {action = "GetMonthlySales", controller = "Dashboard"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[SalesMonitor.API.Models.SalesData]] GetMonthlySales(System.Nullable`1[System.Int32], System.Nullable`1[System.Int32], System.String) on controller SalesMonitor.API.Controllers.DashboardController (SalesMonitor.API).
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor[1]
+      Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[SalesMonitor.API.Models.SalesData, SalesMonitor.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[105]
+      Executed action SalesMonitor.API.Controllers.DashboardController.GetMonthlySales (SalesMonitor.API) in 0.487ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'SalesMonitor.API.Controllers.DashboardController.GetMonthlySales (SalesMonitor.API)'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/1.1 GET http://localhost:5162/api/dashboard/monthly-sales?year=2026&month=1 - 200 - application/json;+charset=utf-8 0.6812ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/1.1 GET http://localhost:5162/api/dashboard/products?year=2026&month=1 - - -
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/1.1 GET http://localhost:5162/api/dashboard/regions?year=2026&month=1 - - -
+info: Microsoft.AspNetCore.Cors.Infrastructure.CorsService[4]
+      CORS policy execution successful.
+info: Microsoft.AspNetCore.Cors.Infrastructure.CorsService[4]
+      CORS policy execution successful.
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'SalesMonitor.API.Controllers.DashboardController.GetRegions (SalesMonitor.API)'
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'SalesMonitor.API.Controllers.DashboardController.GetProducts (SalesMonitor.API)'
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[102]
+      Route matched with {action = "GetProducts", controller = "Dashboard"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[SalesMonitor.API.Models.ProductPerformance]] GetProducts(System.Nullable`1[System.Int32], System.Nullable`1[System.Int32], System.String) on controller SalesMonitor.API.Controllers.DashboardController (SalesMonitor.API).
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[102]
+      Route matched with {action = "GetRegions", controller = "Dashboard"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[SalesMonitor.API.Models.RegionData]] GetRegions(System.Nullable`1[System.Int32], System.Nullable`1[System.Int32], System.String) on controller SalesMonitor.API.Controllers.DashboardController (SalesMonitor.API).
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor[1]
+      Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[SalesMonitor.API.Models.RegionData, SalesMonitor.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor[1]
+      Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[SalesMonitor.API.Models.ProductPerformance, SalesMonitor.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[105]
+      Executed action SalesMonitor.API.Controllers.DashboardController.GetRegions (SalesMonitor.API) in 0.4622ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'SalesMonitor.API.Controllers.DashboardController.GetRegions (SalesMonitor.API)'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/1.1 GET http://localhost:5162/api/dashboard/regions?year=2026&month=1 - 200 - application/json;+charset=utf-8 0.6197ms
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[105]
+      Executed action SalesMonitor.API.Controllers.DashboardController.GetProducts (SalesMonitor.API) in 0.5194ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'SalesMonitor.API.Controllers.DashboardController.GetProducts (SalesMonitor.API)'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/1.1 GET http://localhost:5162/api/dashboard/products?year=2026&month=1 - 200 - application/json;+charset=utf-8 0.6920ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/1.1 GET http://localhost:5162/api/orders?year=2026&month=1 - - -
+info: Microsoft.AspNetCore.Cors.Infrastructure.CorsService[4]
+      CORS policy execution successful.
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'SalesMonitor.API.Controllers.OrdersController.GetAll (SalesMonitor.API)'
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[102]
+      Route matched with {action = "GetAll", controller = "Orders"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[SalesMonitor.API.Models.Order]] GetAll(System.Nullable`1[System.Int32], System.Nullable`1[System.Int32]) on controller SalesMonitor.API.Controllers.OrdersController (SalesMonitor.API).
+warn: Microsoft.EntityFrameworkCore.Query[10103]
+      The query uses the 'First'/'FirstOrDefault' operator without 'OrderBy' and filter operators. This may lead to unpredictable results.
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (22ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT * FROM order_head WHERE YEAR(shipment_date) = 2026 AND MONTH(shipment_date) = 1
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor[1]
+      Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[SalesMonitor.API.Models.Order, SalesMonitor.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[105]
+      Executed action SalesMonitor.API.Controllers.OrdersController.GetAll (SalesMonitor.API) in 37.0642ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'SalesMonitor.API.Controllers.OrdersController.GetAll (SalesMonitor.API)'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/1.1 GET http://localhost:5162/api/orders?year=2026&month=1 - 200 - application/json;+charset=utf-8 37.2591ms
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (74ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [s].[Value]
+      FROM (
+          SELECT ISNULL(SUM(total_before_vat), 0) AS Value FROM VIEW_SO_SUM WHERE YEAR(shipment_date) = 2026 AND MONTH(shipment_date) = 1
+      ) AS [s]
+warn: Microsoft.EntityFrameworkCore.Query[10103]
+      The query uses the 'First'/'FirstOrDefault' operator without 'OrderBy' and filter operators. This may lead to unpredictable results.
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (20ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [s].[Value]
+      FROM (
+          SELECT COUNT(*) AS Value FROM appoint_head WHERE YEAR(record_date) = 2026 AND MONTH(record_date) = 1
+      ) AS [s]
+warn: Microsoft.EntityFrameworkCore.Query[10103]
+      The query uses the 'First'/'FirstOrDefault' operator without 'OrderBy' and filter operators. This may lead to unpredictable results.
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (60ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [s].[Value]
+      FROM (
+          SELECT COUNT(*) AS Value FROM cost_sheet_head WHERE YEAR(qt_date) = 2026 AND MONTH(qt_date) = 1
+      ) AS [s]
+warn: Microsoft.EntityFrameworkCore.Query[10103]
+      The query uses the 'First'/'FirstOrDefault' operator without 'OrderBy' and filter operators. This may lead to unpredictable results.
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (13ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [s].[Value]
+      FROM (
+          SELECT COUNT(*) AS Value FROM order_head WHERE YEAR(shipment_date) = 2026 AND MONTH(shipment_date) = 1
+      ) AS [s]
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor[1]
+      Executing OkObjectResult, writing value of type 'SalesMonitor.API.Models.DashboardStats'.
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[105]
+      Executed action SalesMonitor.API.Controllers.DashboardController.GetStats (SalesMonitor.API) in 248.6856ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'SalesMonitor.API.Controllers.DashboardController.GetStats (SalesMonitor.API)'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/1.1 GET http://localhost:5162/api/dashboard/stats?year=2026&month=1 - 200 - application/json;+charset=utf-8 248.9772ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/1.1 GET http://localhost:5162/api/dashboard/stats?year=2026 - - -
+info: Microsoft.AspNetCore.Cors.Infrastructure.CorsService[4]
+      CORS policy execution successful.
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'SalesMonitor.API.Controllers.DashboardController.GetStats (SalesMonitor.API)'
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[102]
+      Route matched with {action = "GetStats", controller = "Dashboard"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[SalesMonitor.API.Models.DashboardStats] GetStats(System.Nullable`1[System.Int32], System.Nullable`1[System.Int32], System.String) on controller SalesMonitor.API.Controllers.DashboardController (SalesMonitor.API).
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/1.1 GET http://localhost:5162/api/dashboard/monthly-sales?year=2026 - - -
+info: Microsoft.AspNetCore.Cors.Infrastructure.CorsService[4]
+      CORS policy execution successful.
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'SalesMonitor.API.Controllers.DashboardController.GetMonthlySales (SalesMonitor.API)'
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[102]
+      Route matched with {action = "GetMonthlySales", controller = "Dashboard"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[SalesMonitor.API.Models.SalesData]] GetMonthlySales(System.Nullable`1[System.Int32], System.Nullable`1[System.Int32], System.String) on controller SalesMonitor.API.Controllers.DashboardController (SalesMonitor.API).
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor[1]
+      Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[SalesMonitor.API.Models.SalesData, SalesMonitor.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[105]
+      Executed action SalesMonitor.API.Controllers.DashboardController.GetMonthlySales (SalesMonitor.API) in 0.4319ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'SalesMonitor.API.Controllers.DashboardController.GetMonthlySales (SalesMonitor.API)'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/1.1 GET http://localhost:5162/api/dashboard/monthly-sales?year=2026 - 200 - application/json;+charset=utf-8 0.6738ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/1.1 GET http://localhost:5162/api/dashboard/regions?year=2026 - - -
+info: Microsoft.AspNetCore.Cors.Infrastructure.CorsService[4]
+      CORS policy execution successful.
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'SalesMonitor.API.Controllers.DashboardController.GetRegions (SalesMonitor.API)'
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[102]
+      Route matched with {action = "GetRegions", controller = "Dashboard"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[SalesMonitor.API.Models.RegionData]] GetRegions(System.Nullable`1[System.Int32], System.Nullable`1[System.Int32], System.String) on controller SalesMonitor.API.Controllers.DashboardController (SalesMonitor.API).
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor[1]
+      Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[SalesMonitor.API.Models.RegionData, SalesMonitor.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[105]
+      Executed action SalesMonitor.API.Controllers.DashboardController.GetRegions (SalesMonitor.API) in 0.2174ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'SalesMonitor.API.Controllers.DashboardController.GetRegions (SalesMonitor.API)'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/1.1 GET http://localhost:5162/api/dashboard/regions?year=2026 - 200 - application/json;+charset=utf-8 0.3387ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/1.1 GET http://localhost:5162/api/dashboard/products?year=2026 - - -
+info: Microsoft.AspNetCore.Cors.Infrastructure.CorsService[4]
+      CORS policy execution successful.
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/1.1 GET http://localhost:5162/api/orders?year=2026 - - -
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'SalesMonitor.API.Controllers.DashboardController.GetProducts (SalesMonitor.API)'
+info: Microsoft.AspNetCore.Cors.Infrastructure.CorsService[4]
+      CORS policy execution successful.
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[102]
+      Route matched with {action = "GetProducts", controller = "Dashboard"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[SalesMonitor.API.Models.ProductPerformance]] GetProducts(System.Nullable`1[System.Int32], System.Nullable`1[System.Int32], System.String) on controller SalesMonitor.API.Controllers.DashboardController (SalesMonitor.API).
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'SalesMonitor.API.Controllers.OrdersController.GetAll (SalesMonitor.API)'
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[102]
+      Route matched with {action = "GetAll", controller = "Orders"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[SalesMonitor.API.Models.Order]] GetAll(System.Nullable`1[System.Int32], System.Nullable`1[System.Int32]) on controller SalesMonitor.API.Controllers.OrdersController (SalesMonitor.API).
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor[1]
+      Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[SalesMonitor.API.Models.ProductPerformance, SalesMonitor.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[105]
+      Executed action SalesMonitor.API.Controllers.DashboardController.GetProducts (SalesMonitor.API) in 0.2839ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'SalesMonitor.API.Controllers.DashboardController.GetProducts (SalesMonitor.API)'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/1.1 GET http://localhost:5162/api/dashboard/products?year=2026 - 200 - application/json;+charset=utf-8 0.4186ms
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (9ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT * FROM order_head WHERE YEAR(shipment_date) = 2026
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (33ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [s].[Value]
+      FROM (
+          SELECT ISNULL(SUM(total_before_vat), 0) AS Value FROM VIEW_SO_SUM WHERE YEAR(shipment_date) = 2026
+      ) AS [s]
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor[1]
+      Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[SalesMonitor.API.Models.Order, SalesMonitor.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[105]
+      Executed action SalesMonitor.API.Controllers.OrdersController.GetAll (SalesMonitor.API) in 32.6989ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'SalesMonitor.API.Controllers.OrdersController.GetAll (SalesMonitor.API)'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/1.1 GET http://localhost:5162/api/orders?year=2026 - 200 - application/json;+charset=utf-8 32.8683ms
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (60ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [s].[Value]
+      FROM (
+          SELECT COUNT(*) AS Value FROM appoint_head WHERE YEAR(record_date) = 2026
+      ) AS [s]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (17ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [s].[Value]
+      FROM (
+          SELECT COUNT(*) AS Value FROM cost_sheet_head WHERE YEAR(qt_date) = 2026
+      ) AS [s]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (15ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [s].[Value]
+      FROM (
+          SELECT COUNT(*) AS Value FROM order_head WHERE YEAR(shipment_date) = 2026
+      ) AS [s]
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor[1]
+      Executing OkObjectResult, writing value of type 'SalesMonitor.API.Models.DashboardStats'.
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[105]
+      Executed action SalesMonitor.API.Controllers.DashboardController.GetStats (SalesMonitor.API) in 128.2183ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'SalesMonitor.API.Controllers.DashboardController.GetStats (SalesMonitor.API)'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/1.1 GET http://localhost:5162/api/dashboard/stats?year=2026 - 200 - application/json;+charset=utf-8 128.6409ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/1.1 GET http://localhost:5162/api/dashboard/stats?year=2026&month=1 - - -
+info: Microsoft.AspNetCore.Cors.Infrastructure.CorsService[4]
+      CORS policy execution successful.
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'SalesMonitor.API.Controllers.DashboardController.GetStats (SalesMonitor.API)'
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[102]
+      Route matched with {action = "GetStats", controller = "Dashboard"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[SalesMonitor.API.Models.DashboardStats] GetStats(System.Nullable`1[System.Int32], System.Nullable`1[System.Int32], System.String) on controller SalesMonitor.API.Controllers.DashboardController (SalesMonitor.API).
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/1.1 GET http://localhost:5162/api/dashboard/monthly-sales?year=2026&month=1 - - -
+info: Microsoft.AspNetCore.Cors.Infrastructure.CorsService[4]
+      CORS policy execution successful.
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'SalesMonitor.API.Controllers.DashboardController.GetMonthlySales (SalesMonitor.API)'
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[102]
+      Route matched with {action = "GetMonthlySales", controller = "Dashboard"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[SalesMonitor.API.Models.SalesData]] GetMonthlySales(System.Nullable`1[System.Int32], System.Nullable`1[System.Int32], System.String) on controller SalesMonitor.API.Controllers.DashboardController (SalesMonitor.API).
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor[1]
+      Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[SalesMonitor.API.Models.SalesData, SalesMonitor.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[105]
+      Executed action SalesMonitor.API.Controllers.DashboardController.GetMonthlySales (SalesMonitor.API) in 0.355ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'SalesMonitor.API.Controllers.DashboardController.GetMonthlySales (SalesMonitor.API)'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/1.1 GET http://localhost:5162/api/dashboard/monthly-sales?year=2026&month=1 - 200 - application/json;+charset=utf-8 0.5708ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/1.1 GET http://localhost:5162/api/dashboard/regions?year=2026&month=1 - - -
+info: Microsoft.AspNetCore.Cors.Infrastructure.CorsService[4]
+      CORS policy execution successful.
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'SalesMonitor.API.Controllers.DashboardController.GetRegions (SalesMonitor.API)'
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[102]
+      Route matched with {action = "GetRegions", controller = "Dashboard"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[SalesMonitor.API.Models.RegionData]] GetRegions(System.Nullable`1[System.Int32], System.Nullable`1[System.Int32], System.String) on controller SalesMonitor.API.Controllers.DashboardController (SalesMonitor.API).
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor[1]
+      Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[SalesMonitor.API.Models.RegionData, SalesMonitor.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[105]
+      Executed action SalesMonitor.API.Controllers.DashboardController.GetRegions (SalesMonitor.API) in 0.205ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'SalesMonitor.API.Controllers.DashboardController.GetRegions (SalesMonitor.API)'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/1.1 GET http://localhost:5162/api/dashboard/regions?year=2026&month=1 - 200 - application/json;+charset=utf-8 0.3198ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/1.1 GET http://localhost:5162/api/orders?year=2026&month=1 - - -
+info: Microsoft.AspNetCore.Cors.Infrastructure.CorsService[4]
+      CORS policy execution successful.
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'SalesMonitor.API.Controllers.OrdersController.GetAll (SalesMonitor.API)'
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[102]
+      Route matched with {action = "GetAll", controller = "Orders"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[SalesMonitor.API.Models.Order]] GetAll(System.Nullable`1[System.Int32], System.Nullable`1[System.Int32]) on controller SalesMonitor.API.Controllers.OrdersController (SalesMonitor.API).
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/1.1 GET http://localhost:5162/api/dashboard/products?year=2026&month=1 - - -
+info: Microsoft.AspNetCore.Cors.Infrastructure.CorsService[4]
+      CORS policy execution successful.
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'SalesMonitor.API.Controllers.DashboardController.GetProducts (SalesMonitor.API)'
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[102]
+      Route matched with {action = "GetProducts", controller = "Dashboard"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[SalesMonitor.API.Models.ProductPerformance]] GetProducts(System.Nullable`1[System.Int32], System.Nullable`1[System.Int32], System.String) on controller SalesMonitor.API.Controllers.DashboardController (SalesMonitor.API).
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor[1]
+      Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[SalesMonitor.API.Models.ProductPerformance, SalesMonitor.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[105]
+      Executed action SalesMonitor.API.Controllers.DashboardController.GetProducts (SalesMonitor.API) in 0.2324ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'SalesMonitor.API.Controllers.DashboardController.GetProducts (SalesMonitor.API)'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/1.1 GET http://localhost:5162/api/dashboard/products?year=2026&month=1 - 200 - application/json;+charset=utf-8 0.7237ms
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (22ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT * FROM order_head WHERE YEAR(shipment_date) = 2026 AND MONTH(shipment_date) = 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (69ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [s].[Value]
+      FROM (
+          SELECT ISNULL(SUM(total_before_vat), 0) AS Value FROM VIEW_SO_SUM WHERE YEAR(shipment_date) = 2026 AND MONTH(shipment_date) = 1
+      ) AS [s]
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor[1]
+      Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[SalesMonitor.API.Models.Order, SalesMonitor.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[105]
+      Executed action SalesMonitor.API.Controllers.OrdersController.GetAll (SalesMonitor.API) in 75.3208ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'SalesMonitor.API.Controllers.OrdersController.GetAll (SalesMonitor.API)'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/1.1 GET http://localhost:5162/api/orders?year=2026&month=1 - 200 - application/json;+charset=utf-8 75.4930ms
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (21ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [s].[Value]
+      FROM (
+          SELECT COUNT(*) AS Value FROM appoint_head WHERE YEAR(record_date) = 2026 AND MONTH(record_date) = 1
+      ) AS [s]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (13ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [s].[Value]
+      FROM (
+          SELECT COUNT(*) AS Value FROM cost_sheet_head WHERE YEAR(qt_date) = 2026 AND MONTH(qt_date) = 1
+      ) AS [s]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (10ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [s].[Value]
+      FROM (
+          SELECT COUNT(*) AS Value FROM order_head WHERE YEAR(shipment_date) = 2026 AND MONTH(shipment_date) = 1
+      ) AS [s]
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor[1]
+      Executing OkObjectResult, writing value of type 'SalesMonitor.API.Models.DashboardStats'.
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[105]
+      Executed action SalesMonitor.API.Controllers.DashboardController.GetStats (SalesMonitor.API) in 116.1573ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'SalesMonitor.API.Controllers.DashboardController.GetStats (SalesMonitor.API)'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/1.1 GET http://localhost:5162/api/dashboard/stats?year=2026&month=1 - 200 - application/json;+charset=utf-8 116.5399ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/1.1 GET http://localhost:5162/api/dashboard/monthly-sales?year=2026&month=2 - - -
+info: Microsoft.AspNetCore.Cors.Infrastructure.CorsService[4]
+      CORS policy execution successful.
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'SalesMonitor.API.Controllers.DashboardController.GetMonthlySales (SalesMonitor.API)'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/1.1 GET http://localhost:5162/api/dashboard/stats?year=2026&month=2 - - -
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[102]
+      Route matched with {action = "GetMonthlySales", controller = "Dashboard"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[SalesMonitor.API.Models.SalesData]] GetMonthlySales(System.Nullable`1[System.Int32], System.Nullable`1[System.Int32], System.String) on controller SalesMonitor.API.Controllers.DashboardController (SalesMonitor.API).
+info: Microsoft.AspNetCore.Cors.Infrastructure.CorsService[4]
+      CORS policy execution successful.
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'SalesMonitor.API.Controllers.DashboardController.GetStats (SalesMonitor.API)'
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[102]
+      Route matched with {action = "GetStats", controller = "Dashboard"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[SalesMonitor.API.Models.DashboardStats] GetStats(System.Nullable`1[System.Int32], System.Nullable`1[System.Int32], System.String) on controller SalesMonitor.API.Controllers.DashboardController (SalesMonitor.API).
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor[1]
+      Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[SalesMonitor.API.Models.SalesData, SalesMonitor.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[105]
+      Executed action SalesMonitor.API.Controllers.DashboardController.GetMonthlySales (SalesMonitor.API) in 0.435ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'SalesMonitor.API.Controllers.DashboardController.GetMonthlySales (SalesMonitor.API)'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/1.1 GET http://localhost:5162/api/dashboard/monthly-sales?year=2026&month=2 - 200 - application/json;+charset=utf-8 0.7522ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/1.1 GET http://localhost:5162/api/dashboard/products?year=2026&month=2 - - -
+info: Microsoft.AspNetCore.Cors.Infrastructure.CorsService[4]
+      CORS policy execution successful.
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'SalesMonitor.API.Controllers.DashboardController.GetProducts (SalesMonitor.API)'
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[102]
+      Route matched with {action = "GetProducts", controller = "Dashboard"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[SalesMonitor.API.Models.ProductPerformance]] GetProducts(System.Nullable`1[System.Int32], System.Nullable`1[System.Int32], System.String) on controller SalesMonitor.API.Controllers.DashboardController (SalesMonitor.API).
+warn: Microsoft.EntityFrameworkCore.Query[10103]
+      The query uses the 'First'/'FirstOrDefault' operator without 'OrderBy' and filter operators. This may lead to unpredictable results.
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor[1]
+      Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[SalesMonitor.API.Models.ProductPerformance, SalesMonitor.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[105]
+      Executed action SalesMonitor.API.Controllers.DashboardController.GetProducts (SalesMonitor.API) in 0.2155ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'SalesMonitor.API.Controllers.DashboardController.GetProducts (SalesMonitor.API)'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/1.1 GET http://localhost:5162/api/dashboard/products?year=2026&month=2 - 200 - application/json;+charset=utf-8 0.3351ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/1.1 GET http://localhost:5162/api/dashboard/regions?year=2026&month=2 - - -
+info: Microsoft.AspNetCore.Cors.Infrastructure.CorsService[4]
+      CORS policy execution successful.
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'SalesMonitor.API.Controllers.DashboardController.GetRegions (SalesMonitor.API)'
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[102]
+      Route matched with {action = "GetRegions", controller = "Dashboard"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[SalesMonitor.API.Models.RegionData]] GetRegions(System.Nullable`1[System.Int32], System.Nullable`1[System.Int32], System.String) on controller SalesMonitor.API.Controllers.DashboardController (SalesMonitor.API).
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor[1]
+      Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[SalesMonitor.API.Models.RegionData, SalesMonitor.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[105]
+      Executed action SalesMonitor.API.Controllers.DashboardController.GetRegions (SalesMonitor.API) in 0.2409ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'SalesMonitor.API.Controllers.DashboardController.GetRegions (SalesMonitor.API)'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/1.1 GET http://localhost:5162/api/dashboard/regions?year=2026&month=2 - 200 - application/json;+charset=utf-8 0.3908ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/1.1 GET http://localhost:5162/api/orders?year=2026&month=2 - - -
+info: Microsoft.AspNetCore.Cors.Infrastructure.CorsService[4]
+      CORS policy execution successful.
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'SalesMonitor.API.Controllers.OrdersController.GetAll (SalesMonitor.API)'
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[102]
+      Route matched with {action = "GetAll", controller = "Orders"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[SalesMonitor.API.Models.Order]] GetAll(System.Nullable`1[System.Int32], System.Nullable`1[System.Int32]) on controller SalesMonitor.API.Controllers.OrdersController (SalesMonitor.API).
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (9ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT * FROM order_head WHERE YEAR(shipment_date) = 2026 AND MONTH(shipment_date) = 2
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor[1]
+      Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[SalesMonitor.API.Models.Order, SalesMonitor.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[105]
+      Executed action SalesMonitor.API.Controllers.OrdersController.GetAll (SalesMonitor.API) in 17.5642ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'SalesMonitor.API.Controllers.OrdersController.GetAll (SalesMonitor.API)'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/1.1 GET http://localhost:5162/api/orders?year=2026&month=2 - 200 - application/json;+charset=utf-8 17.7128ms
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (28ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [s].[Value]
+      FROM (
+          SELECT ISNULL(SUM(total_before_vat), 0) AS Value FROM VIEW_SO_SUM WHERE YEAR(shipment_date) = 2026 AND MONTH(shipment_date) = 2
+      ) AS [s]
+warn: Microsoft.EntityFrameworkCore.Query[10103]
+      The query uses the 'First'/'FirstOrDefault' operator without 'OrderBy' and filter operators. This may lead to unpredictable results.
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (61ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [s].[Value]
+      FROM (
+          SELECT COUNT(*) AS Value FROM appoint_head WHERE YEAR(record_date) = 2026 AND MONTH(record_date) = 2
+      ) AS [s]
+warn: Microsoft.EntityFrameworkCore.Query[10103]
+      The query uses the 'First'/'FirstOrDefault' operator without 'OrderBy' and filter operators. This may lead to unpredictable results.
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (10ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [s].[Value]
+      FROM (
+          SELECT COUNT(*) AS Value FROM cost_sheet_head WHERE YEAR(qt_date) = 2026 AND MONTH(qt_date) = 2
+      ) AS [s]
+warn: Microsoft.EntityFrameworkCore.Query[10103]
+      The query uses the 'First'/'FirstOrDefault' operator without 'OrderBy' and filter operators. This may lead to unpredictable results.
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (9ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [s].[Value]
+      FROM (
+          SELECT COUNT(*) AS Value FROM order_head WHERE YEAR(shipment_date) = 2026 AND MONTH(shipment_date) = 2
+      ) AS [s]
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor[1]
+      Executing OkObjectResult, writing value of type 'SalesMonitor.API.Models.DashboardStats'.
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[105]
+      Executed action SalesMonitor.API.Controllers.DashboardController.GetStats (SalesMonitor.API) in 120.0286ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'SalesMonitor.API.Controllers.DashboardController.GetStats (SalesMonitor.API)'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/1.1 GET http://localhost:5162/api/dashboard/stats?year=2026&month=2 - 200 - application/json;+charset=utf-8 120.4088ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/1.1 GET http://localhost:5162/api/dashboard/stats?year=2026&month=1 - - -
+info: Microsoft.AspNetCore.Cors.Infrastructure.CorsService[4]
+      CORS policy execution successful.
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'SalesMonitor.API.Controllers.DashboardController.GetStats (SalesMonitor.API)'
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[102]
+      Route matched with {action = "GetStats", controller = "Dashboard"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[SalesMonitor.API.Models.DashboardStats] GetStats(System.Nullable`1[System.Int32], System.Nullable`1[System.Int32], System.String) on controller SalesMonitor.API.Controllers.DashboardController (SalesMonitor.API).
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/1.1 GET http://localhost:5162/api/dashboard/monthly-sales?year=2026&month=1 - - -
+info: Microsoft.AspNetCore.Cors.Infrastructure.CorsService[4]
+      CORS policy execution successful.
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'SalesMonitor.API.Controllers.DashboardController.GetMonthlySales (SalesMonitor.API)'
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[102]
+      Route matched with {action = "GetMonthlySales", controller = "Dashboard"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[SalesMonitor.API.Models.SalesData]] GetMonthlySales(System.Nullable`1[System.Int32], System.Nullable`1[System.Int32], System.String) on controller SalesMonitor.API.Controllers.DashboardController (SalesMonitor.API).
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/1.1 GET http://localhost:5162/api/dashboard/regions?year=2026&month=1 - - -
+info: Microsoft.AspNetCore.Cors.Infrastructure.CorsService[4]
+      CORS policy execution successful.
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'SalesMonitor.API.Controllers.DashboardController.GetRegions (SalesMonitor.API)'
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[102]
+      Route matched with {action = "GetRegions", controller = "Dashboard"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[SalesMonitor.API.Models.RegionData]] GetRegions(System.Nullable`1[System.Int32], System.Nullable`1[System.Int32], System.String) on controller SalesMonitor.API.Controllers.DashboardController (SalesMonitor.API).
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor[1]
+      Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[SalesMonitor.API.Models.SalesData, SalesMonitor.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor[1]
+      Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[SalesMonitor.API.Models.RegionData, SalesMonitor.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[105]
+      Executed action SalesMonitor.API.Controllers.DashboardController.GetRegions (SalesMonitor.API) in 0.3107ms
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[105]
+      Executed action SalesMonitor.API.Controllers.DashboardController.GetMonthlySales (SalesMonitor.API) in 0.3696ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'SalesMonitor.API.Controllers.DashboardController.GetRegions (SalesMonitor.API)'
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'SalesMonitor.API.Controllers.DashboardController.GetMonthlySales (SalesMonitor.API)'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/1.1 GET http://localhost:5162/api/dashboard/regions?year=2026&month=1 - 200 - application/json;+charset=utf-8 0.4084ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/1.1 GET http://localhost:5162/api/dashboard/monthly-sales?year=2026&month=1 - 200 - application/json;+charset=utf-8 0.4828ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/1.1 GET http://localhost:5162/api/dashboard/products?year=2026&month=1 - - -
+info: Microsoft.AspNetCore.Cors.Infrastructure.CorsService[4]
+      CORS policy execution successful.
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'SalesMonitor.API.Controllers.DashboardController.GetProducts (SalesMonitor.API)'
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[102]
+      Route matched with {action = "GetProducts", controller = "Dashboard"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[SalesMonitor.API.Models.ProductPerformance]] GetProducts(System.Nullable`1[System.Int32], System.Nullable`1[System.Int32], System.String) on controller SalesMonitor.API.Controllers.DashboardController (SalesMonitor.API).
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor[1]
+      Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[SalesMonitor.API.Models.ProductPerformance, SalesMonitor.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[105]
+      Executed action SalesMonitor.API.Controllers.DashboardController.GetProducts (SalesMonitor.API) in 0.2103ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'SalesMonitor.API.Controllers.DashboardController.GetProducts (SalesMonitor.API)'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/1.1 GET http://localhost:5162/api/dashboard/products?year=2026&month=1 - 200 - application/json;+charset=utf-8 0.3191ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/1.1 GET http://localhost:5162/api/orders?year=2026&month=1 - - -
+info: Microsoft.AspNetCore.Cors.Infrastructure.CorsService[4]
+      CORS policy execution successful.
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'SalesMonitor.API.Controllers.OrdersController.GetAll (SalesMonitor.API)'
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[102]
+      Route matched with {action = "GetAll", controller = "Orders"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[SalesMonitor.API.Models.Order]] GetAll(System.Nullable`1[System.Int32], System.Nullable`1[System.Int32]) on controller SalesMonitor.API.Controllers.OrdersController (SalesMonitor.API).
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (10ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT * FROM order_head WHERE YEAR(shipment_date) = 2026 AND MONTH(shipment_date) = 1
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor[1]
+      Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[SalesMonitor.API.Models.Order, SalesMonitor.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[105]
+      Executed action SalesMonitor.API.Controllers.OrdersController.GetAll (SalesMonitor.API) in 13.5639ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'SalesMonitor.API.Controllers.OrdersController.GetAll (SalesMonitor.API)'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/1.1 GET http://localhost:5162/api/orders?year=2026&month=1 - 200 - application/json;+charset=utf-8 13.7118ms
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (23ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [s].[Value]
+      FROM (
+          SELECT ISNULL(SUM(total_before_vat), 0) AS Value FROM VIEW_SO_SUM WHERE YEAR(shipment_date) = 2026 AND MONTH(shipment_date) = 1
+      ) AS [s]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (17ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [s].[Value]
+      FROM (
+          SELECT COUNT(*) AS Value FROM appoint_head WHERE YEAR(record_date) = 2026 AND MONTH(record_date) = 1
+      ) AS [s]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (59ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [s].[Value]
+      FROM (
+          SELECT COUNT(*) AS Value FROM cost_sheet_head WHERE YEAR(qt_date) = 2026 AND MONTH(qt_date) = 1
+      ) AS [s]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (10ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [s].[Value]
+      FROM (
+          SELECT COUNT(*) AS Value FROM order_head WHERE YEAR(shipment_date) = 2026 AND MONTH(shipment_date) = 1
+      ) AS [s]
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor[1]
+      Executing OkObjectResult, writing value of type 'SalesMonitor.API.Models.DashboardStats'.
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[105]
+      Executed action SalesMonitor.API.Controllers.DashboardController.GetStats (SalesMonitor.API) in 113.1708ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'SalesMonitor.API.Controllers.DashboardController.GetStats (SalesMonitor.API)'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/1.1 GET http://localhost:5162/api/dashboard/stats?year=2026&month=1 - 200 - application/json;+charset=utf-8 113.7299ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/1.1 GET http://localhost:5162/api/dashboard/stats?year=2026 - - -
+info: Microsoft.AspNetCore.Cors.Infrastructure.CorsService[4]
+      CORS policy execution successful.
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'SalesMonitor.API.Controllers.DashboardController.GetStats (SalesMonitor.API)'
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[102]
+      Route matched with {action = "GetStats", controller = "Dashboard"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[SalesMonitor.API.Models.DashboardStats] GetStats(System.Nullable`1[System.Int32], System.Nullable`1[System.Int32], System.String) on controller SalesMonitor.API.Controllers.DashboardController (SalesMonitor.API).
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/1.1 GET http://localhost:5162/api/dashboard/monthly-sales?year=2026 - - -
+info: Microsoft.AspNetCore.Cors.Infrastructure.CorsService[4]
+      CORS policy execution successful.
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'SalesMonitor.API.Controllers.DashboardController.GetMonthlySales (SalesMonitor.API)'
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[102]
+      Route matched with {action = "GetMonthlySales", controller = "Dashboard"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[SalesMonitor.API.Models.SalesData]] GetMonthlySales(System.Nullable`1[System.Int32], System.Nullable`1[System.Int32], System.String) on controller SalesMonitor.API.Controllers.DashboardController (SalesMonitor.API).
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor[1]
+      Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[SalesMonitor.API.Models.SalesData, SalesMonitor.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[105]
+      Executed action SalesMonitor.API.Controllers.DashboardController.GetMonthlySales (SalesMonitor.API) in 0.3008ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'SalesMonitor.API.Controllers.DashboardController.GetMonthlySales (SalesMonitor.API)'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/1.1 GET http://localhost:5162/api/dashboard/monthly-sales?year=2026 - 200 - application/json;+charset=utf-8 1.5291ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/1.1 GET http://localhost:5162/api/dashboard/products?year=2026 - - -
+info: Microsoft.AspNetCore.Cors.Infrastructure.CorsService[4]
+      CORS policy execution successful.
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'SalesMonitor.API.Controllers.DashboardController.GetProducts (SalesMonitor.API)'
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[102]
+      Route matched with {action = "GetProducts", controller = "Dashboard"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[SalesMonitor.API.Models.ProductPerformance]] GetProducts(System.Nullable`1[System.Int32], System.Nullable`1[System.Int32], System.String) on controller SalesMonitor.API.Controllers.DashboardController (SalesMonitor.API).
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor[1]
+      Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[SalesMonitor.API.Models.ProductPerformance, SalesMonitor.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[105]
+      Executed action SalesMonitor.API.Controllers.DashboardController.GetProducts (SalesMonitor.API) in 0.1861ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'SalesMonitor.API.Controllers.DashboardController.GetProducts (SalesMonitor.API)'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/1.1 GET http://localhost:5162/api/dashboard/products?year=2026 - 200 - application/json;+charset=utf-8 0.2892ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/1.1 GET http://localhost:5162/api/dashboard/regions?year=2026 - - -
+info: Microsoft.AspNetCore.Cors.Infrastructure.CorsService[4]
+      CORS policy execution successful.
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'SalesMonitor.API.Controllers.DashboardController.GetRegions (SalesMonitor.API)'
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[102]
+      Route matched with {action = "GetRegions", controller = "Dashboard"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[SalesMonitor.API.Models.RegionData]] GetRegions(System.Nullable`1[System.Int32], System.Nullable`1[System.Int32], System.String) on controller SalesMonitor.API.Controllers.DashboardController (SalesMonitor.API).
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor[1]
+      Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[SalesMonitor.API.Models.RegionData, SalesMonitor.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[105]
+      Executed action SalesMonitor.API.Controllers.DashboardController.GetRegions (SalesMonitor.API) in 0.1737ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'SalesMonitor.API.Controllers.DashboardController.GetRegions (SalesMonitor.API)'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/1.1 GET http://localhost:5162/api/dashboard/regions?year=2026 - 200 - application/json;+charset=utf-8 0.2921ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/1.1 GET http://localhost:5162/api/orders?year=2026 - - -
+info: Microsoft.AspNetCore.Cors.Infrastructure.CorsService[4]
+      CORS policy execution successful.
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'SalesMonitor.API.Controllers.OrdersController.GetAll (SalesMonitor.API)'
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[102]
+      Route matched with {action = "GetAll", controller = "Orders"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[SalesMonitor.API.Models.Order]] GetAll(System.Nullable`1[System.Int32], System.Nullable`1[System.Int32]) on controller SalesMonitor.API.Controllers.OrdersController (SalesMonitor.API).
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (38ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT * FROM order_head WHERE YEAR(shipment_date) = 2026
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor[1]
+      Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[SalesMonitor.API.Models.Order, SalesMonitor.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[105]
+      Executed action SalesMonitor.API.Controllers.OrdersController.GetAll (SalesMonitor.API) in 49.7491ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'SalesMonitor.API.Controllers.OrdersController.GetAll (SalesMonitor.API)'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/1.1 GET http://localhost:5162/api/orders?year=2026 - 200 - application/json;+charset=utf-8 49.8877ms
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (54ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [s].[Value]
+      FROM (
+          SELECT ISNULL(SUM(total_before_vat), 0) AS Value FROM VIEW_SO_SUM WHERE YEAR(shipment_date) = 2026
+      ) AS [s]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (14ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [s].[Value]
+      FROM (
+          SELECT COUNT(*) AS Value FROM appoint_head WHERE YEAR(record_date) = 2026
+      ) AS [s]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (10ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [s].[Value]
+      FROM (
+          SELECT COUNT(*) AS Value FROM cost_sheet_head WHERE YEAR(qt_date) = 2026
+      ) AS [s]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (52ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [s].[Value]
+      FROM (
+          SELECT COUNT(*) AS Value FROM order_head WHERE YEAR(shipment_date) = 2026
+      ) AS [s]
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor[1]
+      Executing OkObjectResult, writing value of type 'SalesMonitor.API.Models.DashboardStats'.
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[105]
+      Executed action SalesMonitor.API.Controllers.DashboardController.GetStats (SalesMonitor.API) in 131.8247ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'SalesMonitor.API.Controllers.DashboardController.GetStats (SalesMonitor.API)'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/1.1 GET http://localhost:5162/api/dashboard/stats?year=2026 - 200 - application/json;+charset=utf-8 132.0916ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/1.1 GET http://localhost:5162/api/customers?year=2026 - - -
+info: Microsoft.AspNetCore.Cors.Infrastructure.CorsService[4]
+      CORS policy execution successful.
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'SalesMonitor.API.Controllers.CustomersController.GetAll (SalesMonitor.API)'
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[102]
+      Route matched with {action = "GetAll", controller = "Customers"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[SalesMonitor.API.Models.Customer]] GetAll(System.Nullable`1[System.Int32], System.Nullable`1[System.Int32]) on controller SalesMonitor.API.Controllers.CustomersController (SalesMonitor.API).
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (60ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT * FROM appoint_head WHERE YEAR(record_date) = 2026
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor[1]
+      Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[SalesMonitor.API.Models.Customer, SalesMonitor.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[105]
+      Executed action SalesMonitor.API.Controllers.CustomersController.GetAll (SalesMonitor.API) in 150.5693ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'SalesMonitor.API.Controllers.CustomersController.GetAll (SalesMonitor.API)'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/1.1 GET http://localhost:5162/api/customers?year=2026 - 200 - application/json;+charset=utf-8 150.8511ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/1.1 GET http://localhost:5162/api/customers?year=2026 - - -
+info: Microsoft.AspNetCore.Cors.Infrastructure.CorsService[4]
+      CORS policy execution successful.
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'SalesMonitor.API.Controllers.CustomersController.GetAll (SalesMonitor.API)'
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[102]
+      Route matched with {action = "GetAll", controller = "Customers"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[SalesMonitor.API.Models.Customer]] GetAll(System.Nullable`1[System.Int32], System.Nullable`1[System.Int32]) on controller SalesMonitor.API.Controllers.CustomersController (SalesMonitor.API).
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (17ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT * FROM appoint_head WHERE YEAR(record_date) = 2026
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor[1]
+      Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[SalesMonitor.API.Models.Customer, SalesMonitor.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[105]
+      Executed action SalesMonitor.API.Controllers.CustomersController.GetAll (SalesMonitor.API) in 100.331ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'SalesMonitor.API.Controllers.CustomersController.GetAll (SalesMonitor.API)'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/1.1 GET http://localhost:5162/api/customers?year=2026 - 200 - application/json;+charset=utf-8 100.5291ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/1.1 GET http://localhost:5162/api/quotations?year=2026 - - -
+info: Microsoft.AspNetCore.Cors.Infrastructure.CorsService[4]
+      CORS policy execution successful.
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'SalesMonitor.API.Controllers.QuotationsController.GetAll (SalesMonitor.API)'
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[102]
+      Route matched with {action = "GetAll", controller = "Quotations"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[SalesMonitor.API.Models.Quotation]] GetAll(System.Nullable`1[System.Int32], System.Nullable`1[System.Int32]) on controller SalesMonitor.API.Controllers.QuotationsController (SalesMonitor.API).
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (28ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      
+                      SELECT q.qt_no, q.customer_name, q.qt_date, q.so_amount, q.is_status, q.expiration_qt_date, 
+                             s.fname AS staff_name
+                      FROM cost_sheet_head q
+                      LEFT JOIN hr_staff s ON q.staff_id = s.staff_id WHERE YEAR(qt_date) = 2026
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor[1]
+      Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[SalesMonitor.API.Models.Quotation, SalesMonitor.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[105]
+      Executed action SalesMonitor.API.Controllers.QuotationsController.GetAll (SalesMonitor.API) in 85.6568ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'SalesMonitor.API.Controllers.QuotationsController.GetAll (SalesMonitor.API)'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/1.1 GET http://localhost:5162/api/quotations?year=2026 - 200 - application/json;+charset=utf-8 85.9111ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/1.1 GET http://localhost:5162/api/quotations?year=2026 - - -
+info: Microsoft.AspNetCore.Cors.Infrastructure.CorsService[4]
+      CORS policy execution successful.
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'SalesMonitor.API.Controllers.QuotationsController.GetAll (SalesMonitor.API)'
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[102]
+      Route matched with {action = "GetAll", controller = "Quotations"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[SalesMonitor.API.Models.Quotation]] GetAll(System.Nullable`1[System.Int32], System.Nullable`1[System.Int32]) on controller SalesMonitor.API.Controllers.QuotationsController (SalesMonitor.API).
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (16ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      
+                      SELECT q.qt_no, q.customer_name, q.qt_date, q.so_amount, q.is_status, q.expiration_qt_date, 
+                             s.fname AS staff_name
+                      FROM cost_sheet_head q
+                      LEFT JOIN hr_staff s ON q.staff_id = s.staff_id WHERE YEAR(qt_date) = 2026
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor[1]
+      Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[SalesMonitor.API.Models.Quotation, SalesMonitor.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[105]
+      Executed action SalesMonitor.API.Controllers.QuotationsController.GetAll (SalesMonitor.API) in 27.2057ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'SalesMonitor.API.Controllers.QuotationsController.GetAll (SalesMonitor.API)'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/1.1 GET http://localhost:5162/api/quotations?year=2026 - 200 - application/json;+charset=utf-8 27.4214ms
